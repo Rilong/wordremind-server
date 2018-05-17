@@ -58,9 +58,10 @@ function getWordsAndSentencesTree($data) {
     $newData = array();
 
     foreach ($data as $value) {
-        $word_id = $value['id'];
+        $word_id = 'id' . $value['id'];
         if (!isset($newData[$word_id])) {
             $newData[$word_id] = array(
+                'word_id' => $value['id'],
                 'user_id' => $value['user_id'],
                 'word' => $value['word'],
                 'word_translation' => $value['word_translation']
