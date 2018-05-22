@@ -75,7 +75,7 @@ function getWordsAndSentencesTree($data) {
             );
         }
     }
-    return $newData;
+    return array_values($newData);
 }
 
 function getWords($user_id, PDO $pdo) {
