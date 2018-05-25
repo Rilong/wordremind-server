@@ -5,7 +5,7 @@
     $pdo = getConnection();
     $user_id = $_GET['userId'];
 
-    $data = getWords($user_id, $pdo);
+    $data = getWords($user_id, $pdo, $_GET['settings']);
 
     if (empty($data)) {
         setStatus(400);
