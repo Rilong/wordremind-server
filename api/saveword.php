@@ -9,8 +9,8 @@
 
     $pdo = getConnection();
 
-    $statement_words = $pdo->prepare("INSERT INTO `words` (`user_id`, `word`, `translation`) VALUES (?,?,?)");
-    $params = array($word['userId'], $word['word']['word'], $word['word']['translated']);
+    $statement_words = $pdo->prepare("INSERT INTO `words` (`user_id`, `word`, `translation`, `created_date`) VALUES (?,?,?,?)");
+    $params = array($word['userId'], $word['word']['word'], $word['word']['translated'], time());
     $statement_words->execute($params);
 
     $word_id = $pdo->lastInsertId();

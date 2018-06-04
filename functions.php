@@ -64,7 +64,8 @@ function getWordsAndSentencesTree($data) {
                 'word_id' => $value['id'],
                 'user_id' => $value['user_id'],
                 'word' => $value['word'],
-                'word_translation' => $value['word_translation']
+                'word_translation' => $value['word_translation'],
+                'created_date' => $value['created_date']
             );
         }
         if (isset($value['sentence_text']) && $value['sentence_text'] != null) {
@@ -79,7 +80,7 @@ function getWordsAndSentencesTree($data) {
 }
 
 function getWords($user_id, PDO $pdo, $settings = null) {
-    $sql = "SELECT `words`.`id`, `words`.`user_id`, `words`.`word`, `words`.`translation` AS `word_translation`,`sentences`.`id` AS `sentence_id`, `sentences`.`text` AS `sentence_text`, `sentences`.`text` AS `sentence_text`, `sentences`.`translation` AS `sentence_translation` FROM `words` 
+    $sql = "SELECT `words`.`id`, `words`.`user_id`, `words`.`word`, `words`.`created_date`,  `words`.`translation` AS `word_translation`,`sentences`.`id` AS `sentence_id`, `sentences`.`text` AS `sentence_text`, `sentences`.`text` AS `sentence_text`, `sentences`.`translation` AS `sentence_translation` FROM `words` 
     LEFT JOIN `sentences` ON `words`.`id` = `sentences`.`word_id` 
     WHERE `user_id` = ? ORDER BY `words`.`id`";
 
