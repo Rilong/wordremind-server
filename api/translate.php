@@ -1,24 +1,19 @@
 <?php
 
-    require '../vendor/autoload.php';
+    $router->get('/api/translate', function ($request, $response) {
+        header('Content-Type: application/json');
+        $key = 'wordremind-bbb8b';
+        putenv('GOOGLE_APPLICATION_CREDENTIALS=WordRemind-f231a871a340.json');
 
+        $to = $request->to;
+        $text = $request->text;
 
-    $key = 'wordremind-bbb8b';
+        $translate = new Google\Cloud\Translate\TranslateClient(array(
+            'projectId' => $key
+        ));
 
-    use Google\Cloud\Translate\TranslateClient;
-
-    putenv('GOOGLE_APPLICATION_CREDENTIALS=WordRemind-f231a871a340.json');
-
-    $to = $_GET['to'];
-    $text = $_GET['text'];
-
-    $translate = new TranslateClient(array(
-        'projectId' => $key
-    ));
-
-    $target = 'uk';
-    $translation = $translate->translate($text, [
-        'target' => $to
-    ]);
-
-    exit(urldecode($translation['text']));
+        $translation = $translate->translate($text, [
+            'target' => $to
+        ]);
+        return json_encode($translation, JSON_UNESCAPED_UNICODE);
+    });

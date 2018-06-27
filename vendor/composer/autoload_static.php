@@ -23,6 +23,10 @@ class ComposerStaticInit5c44d0ced8b90762996683a029b62b8e
         array (
             'Monolog\\' => 8,
         ),
+        'K' => 
+        array (
+            'Klein\\' => 6,
+        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
@@ -54,6 +58,10 @@ class ComposerStaticInit5c44d0ced8b90762996683a029b62b8e
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'Klein\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/klein/klein/src/Klein',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (

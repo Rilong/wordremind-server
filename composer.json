@@ -1,5 +1,6 @@
 {
     "require": {
-        "google/cloud-translate": "^1.2"
+        "google/cloud-translate": "^1.2",
+        "klein/klein": "^2.1"
     }
 }
