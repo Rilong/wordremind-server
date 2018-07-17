@@ -1,8 +1,12 @@
 <?php
 
 function getConnection() {
-    $dsn = 'mysql:host=localhost;dbname=wordeng';
-    return new PDO($dsn, 'root', '');
+    $dbConfig = new \helpers\Config('db');
+    $dsn = $dbConfig->get('dns');
+    $username = $dbConfig->get('username');
+    $password = $dbConfig->get('password');
+
+    return new PDO($dsn, $username, $password);
 }
 
 function setStatus($statusCode) {

@@ -1,5 +1,11 @@
 <?php
 
+use Firebase\JWT\JWT;
+use Klein\Request;
+use Klein\Response;
+use Lcobucci\JWT\Builder;
+
+
 $router->post('/api/user', function ($request, $response) {
     header('Content-Type: application/json');
     $user = $request->user;
@@ -56,4 +62,15 @@ $router->get('/api/user', function ($request, $response) {
     $response->code(400);
     return json_encode(['error' => 'Server error']);
 
+});
+
+$router->get('/api/token', function (Request $request, Response $response) {
+    $payload = [
+//        'ial' => time(),
+//        'exp' => time() + 30,
+        'login' => 'admin'
+    ];
+    $token = JWT::encode($payload, md5('secret'));
+
+    return $token;
 });
