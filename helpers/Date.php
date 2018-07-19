@@ -8,7 +8,7 @@ abstract class Date {
     public static function now() {
         return Carbon::now()->timestamp;
     }
-
+    // new comment
     public static function second($seconds) {
         return Carbon::now()->second($seconds)->timestamp;
     }
