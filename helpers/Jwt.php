@@ -7,7 +7,6 @@
  */
 
 namespace helpers;
-//frd
 
 use Firebase\JWT\ExpiredException;
 use Respect\Validation\Validator as v;
