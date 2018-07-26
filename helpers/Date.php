@@ -2,33 +2,31 @@
 
 namespace helpers;
 
-use Carbon\Carbon;
-
 abstract class Date {
     public static function now() {
-        return Carbon::now()->timestamp;
+        return time();
     }
 
     public static function second($seconds) {
-        return Carbon::now()->second($seconds)->timestamp;
+        return self::now() + $seconds;
     }
     public static function minute($minutes) {
-        return Carbon::now()->minute($minutes)->timestamp;
+        return self::second(60 * $minutes);
     }
 
     public static function hour($hours) {
-        return Carbon::now()->hour($hours)->timestamp;
+        return self::minute(60 * $hours);
     }
 
     public static function day($days) {
-        return Carbon::now()->day($days)->timestamp;
+        return self::hour(24 * $days);
     }
 
     public static function month($months) {
-        return Carbon::now()->month($months)->timestamp;
+        return self::day(30 * $months);
     }
 
     public static function year($years) {
-        return Carbon::now()->year($years)->timestamp;
+        return self::month(12 * $years);
     }
 }

@@ -17,10 +17,10 @@ abstract class Jwt {
             $exp = Date::day(15);
 
         $properties = array(
-            'iat' => time(),
+            'iat' => Date::now(),
             'iss' => $jwtConfig->get('domain'),
             'aud' => $jwtConfig->get('domain'),
-            'exp' => Date::minute(5)
+            'exp' => $exp
         );
 
         $payload = array_merge($properties, $data);
