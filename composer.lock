@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "abb63b43e457f6e306888eb1de4c8851",
+    "content-hash": "5bf14c45abca7ffc6b2a810c6a1e64f4",
     "packages": [
         {
             "name": "firebase/php-jwt",
@@ -53,17 +53,58 @@
             "time": "2017-06-27T22:17:23+00:00"
         },
         {
-            "name": "google/auth",
-            "version": "v1.3.0",
+            "name": "gabordemooij/redbean",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/google/google-auth-library-php.git",
-                "reference": "8f7c96146b2c62d3f4c6bbc4b5bb8a8e396b0b71"
+                "url": "https://github.com/gabordemooij/redbean.git",
+                "reference": "20f6bd58d62f13ae811b615ab2788251205fd31d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/google-auth-library-php/zipball/8f7c96146b2c62d3f4c6bbc4b5bb8a8e396b0b71",
-                "reference": "8f7c96146b2c62d3f4c6bbc4b5bb8a8e396b0b71",
+                "url": "https://api.github.com/repos/gabordemooij/redbean/zipball/20f6bd58d62f13ae811b615ab2788251205fd31d",
+                "reference": "20f6bd58d62f13ae811b615ab2788251205fd31d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RedBeanPHP\\": "RedBeanPHP"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Gabor de Mooij",
+                    "email": "gabor@redbeanphp.com",
+                    "homepage": "https://redbeanphp.com"
+                }
+            ],
+            "description": "RedBeanPHP ORM",
+            "homepage": "https://redbeanphp.com/",
+            "keywords": [
+                "orm"
+            ],
+            "time": "2018-07-01T09:51:03+00:00"
+        },
+        {
+            "name": "google/auth",
+            "version": "v1.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/google/google-auth-library-php.git",
+                "reference": "436007a77fd2037f933d3a5c8e4c7e0c9b88a7b0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/google/google-auth-library-php/zipball/436007a77fd2037f933d3a5c8e4c7e0c9b88a7b0",
+                "reference": "436007a77fd2037f933d3a5c8e4c7e0c9b88a7b0",
                 "shasum": ""
             },
             "require": {
@@ -97,20 +138,20 @@
                 "google",
                 "oauth2"
             ],
-            "time": "2018-04-06T19:26:30+00:00"
+            "time": "2018-07-23T21:44:38+00:00"
         },
         {
             "name": "google/cloud-core",
-            "version": "v1.21.0",
+            "version": "v1.21.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GoogleCloudPlatform/google-cloud-php-core.git",
-                "reference": "47207d0342c4c211d784455f9b7fedaaa2711da0"
+                "reference": "4dee63d2baf793d3798cc7e420004102a49b0a71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GoogleCloudPlatform/google-cloud-php-core/zipball/47207d0342c4c211d784455f9b7fedaaa2711da0",
-                "reference": "47207d0342c4c211d784455f9b7fedaaa2711da0",
+                "url": "https://api.github.com/repos/GoogleCloudPlatform/google-cloud-php-core/zipball/4dee63d2baf793d3798cc7e420004102a49b0a71",
+                "reference": "4dee63d2baf793d3798cc7e420004102a49b0a71",
                 "shasum": ""
             },
             "require": {
@@ -124,7 +165,7 @@
             },
             "require-dev": {
                 "erusev/parsedown": "^1.6",
-                "google/gax": "^0.33",
+                "google/gax": "^0.36",
                 "opis/closure": "^3",
                 "phpdocumentor/reflection": "^3.0",
                 "phpunit/phpunit": "^4.8|^5.0",
@@ -156,7 +197,7 @@
                 "Apache-2.0"
             ],
             "description": "Google Cloud PHP shared dependency, providing functionality useful to all components.",
-            "time": "2018-07-11T17:47:34+00:00"
+            "time": "2018-07-19T17:51:07+00:00"
         },
         {
             "name": "google/cloud-translate",
@@ -662,16 +703,16 @@
         },
         {
             "name": "respect/validation",
-            "version": "1.1.19",
+            "version": "1.1.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Respect/Validation.git",
-                "reference": "667ed36b4868e785d52d815181ff00c798a61be7"
+                "reference": "4f3aa90d1f1bf5d392ae89b0738a7e10b6b98e7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Respect/Validation/zipball/667ed36b4868e785d52d815181ff00c798a61be7",
-                "reference": "667ed36b4868e785d52d815181ff00c798a61be7",
+                "url": "https://api.github.com/repos/Respect/Validation/zipball/4f3aa90d1f1bf5d392ae89b0738a7e10b6b98e7b",
+                "reference": "4f3aa90d1f1bf5d392ae89b0738a7e10b6b98e7b",
                 "shasum": ""
             },
             "require": {
@@ -721,7 +762,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2018-07-02T06:22:41+00:00"
+            "time": "2018-07-25T10:33:08+00:00"
         },
         {
             "name": "rize/uri-template",
@@ -830,7 +871,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "gabordemooij/redbean": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

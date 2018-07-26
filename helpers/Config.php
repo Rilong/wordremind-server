@@ -10,7 +10,7 @@ class Config {
 
     public function __construct($config_file) {
         $this->config_file = $config_file;
-        $this->data = @parse_ini_file(self::CONF_DIR . $config_file . '.ini');
+        $this->data = parse_ini_file(self::CONF_DIR . $config_file . '.ini');
         if ($this->data === false)
             exit('Not found configuration file /config/' . $config_file . '.ini');
     }

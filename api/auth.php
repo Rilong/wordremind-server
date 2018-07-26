@@ -6,27 +6,37 @@ use helpers\Config;
 use helpers\Date;
 use helpers\Json;
 use helpers\Jwt;
+use helpers\Passport;
 use Klein\Request;
 use Klein\Response;
+use RedBeanPHP\R;
 
 $router->get('/api/auth', function (Request $request, Response $response) {
-
-    $config = new Config('jwt');
-    $response->code(200);
-    try {
-        return print_r(Jwt::decode($request->token), true);
-    }catch (SignatureInvalidException $e) {
-        $response->code(401);
-        return "SignatureInvalid";
-    }catch (ExpiredException $e) {
-        $response->code(401);
-        return "ExpiredInvalid";
-    }
+    $users = R::findAll('users');
+    print_r($users);
 });
 
 $router->post('/api/auth', function (Request $request, Response $response) {
-   $response->code(201);
-    return Json::encode(Jwt::generateToken(array(
-        'id' => 1
-    ), Date::minute(5)));
+    $login = htmlentities($request->login);
+    $password = htmlspecialchars($request->password);
+
+    $user = R::findOne('users', 'login = ?', array($login));
+    if (!$user) {
+        $response->code(401);
+        return Json::encode('User not found');
+    }
+
+    if (!Passport::verify($password, $user->password)) {
+        $response->code(401);
+        return Json::encode('Password invalid');
+    }
+
+    $response->code(200);
+    $token = Jwt::generateToken(array(
+        'user' => $user->export()
+    ), Date::hour(1));
+
+    return Json::encode(array(
+        'access_token' => $token
+    ));
 });
