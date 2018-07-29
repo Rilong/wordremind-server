@@ -42,7 +42,6 @@ $router->post('/api/auth', function (Request $request, Response $response) {
     return Json::encode(array(
         'user' => $user->export()
     ));
-    // add comment
 });
 
 $router->post('/api/logout', function (Request $request, Response $response) {
