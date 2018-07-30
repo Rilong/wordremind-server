@@ -14,11 +14,21 @@ abstract class Passport {
         return password_verify($password, $hash_password);
     }
 
-    public static function signByHash($login, $password) {
-        $user = R::findOne('users','`login` = ?', array($login));
-        if ($user->count() != 0 && $password == $user->password) {
-            return $user;
+    public static final function generateString($length) {
+        $string = '';
+        $letters = range('a', 'z');
+
+        for ($i = 0; $i < count($letters); $i++) {
+            if (rand(0, 100) > 65) {
+                $letters[$i] = strtoupper($letters[$i]);
+            }
         }
-        return false;
+
+        $lettersAndDigits = array_merge($letters, range(0, 9));
+
+        for ($i = 0; $i < $length; $i++) {
+            $string .= $lettersAndDigits[rand(0, count($lettersAndDigits) - 1)];
+        }
+        return $string;
     }
 }

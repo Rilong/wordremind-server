@@ -12,13 +12,15 @@ use Klein\Response;
 use RedBeanPHP\R;
 
 $router->get('/api/auth', function (Request $request, Response $response) {
-    $users = R::findAll('users');
-    print_r($users);
+    // $users = R::findAll('users');
+    return $request->userAgent();
 });
 
 $router->post('/api/auth', function (Request $request, Response $response) {
     $login = htmlspecialchars($request->login);
     $password = htmlspecialchars($request->password);
+    $ip = $request->ip();
+    $agent = sha1($request->userAgent());
 
     $user = R::findOne('users', 'login = ?', array($login));
     if (!$user) {
@@ -31,26 +33,40 @@ $router->post('/api/auth', function (Request $request, Response $response) {
         return Json::encode('Password invalid');
     }
 
-    $response->code(200);
-    $token = Jwt::generateToken(array(
-        'user' => array('id' => $user->id, 'login' => $user->login)
-    ), Date::hour(1));
+    $session = R::findOne('sessions', '`ip` = ? AND `agent` = ?', array($ip, $agent));
+    $token = null;
+    if (!$session) {
+        $session = R::dispense('sessions');
+        $token = Passport::generateString(60);
+        $session->ip = $ip;
+        $session->agent = $agent;
+        $session->token = $token;
+        $session->user_id = $user->id;
+        $session->date = Date::day(7);
+        R::store($session);
+    } else {
+        $token = $session->token;
+    }
 
-    $user->auth_token = $token;
-    R::store($user);
+    $response->code(200);
 
     return Json::encode(array(
-        'user' => $user->export()
+        'access_token' => $token
     ));
 });
 
-$router->post('/api/logout', function (Request $request, Response $response) {
-    $login = $request->login;
-    $password = $request->password;
+$router->delete('/api/auth', function (Request $request, Response $response) {
+    parse_str(file_get_contents('php://input'),$delete_data);
 
-    $user = Passport::signByHash($login, $password);
-    if ($user) {
-        $user->auth_token = null;
-        R::store($user);
+    $ip = $request->ip();
+    $agent = sha1($request->userAgent());
+    $session = R::findOne('sessions', '`ip` = ? AND `agent` = ?', array($ip, $agent));
+
+    if ($session) {
+        R::trash($session);
+        $response->code(200);
+        return Json::encode('User log outed');
     }
+    $response->code(403);
+    return Json::encode('Forbidden access');
 });
