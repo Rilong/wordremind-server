@@ -2,7 +2,6 @@
 
 namespace helpers;
 
-use RedBeanPHP\R;
 
 abstract class Passport {
 
@@ -17,6 +16,7 @@ abstract class Passport {
     public static final function generateString($length) {
         $string = '';
         $letters = range('a', 'z');
+        $digits = range(0, 9);
 
         for ($i = 0; $i < count($letters); $i++) {
             if (rand(0, 100) > 65) {
@@ -24,7 +24,7 @@ abstract class Passport {
             }
         }
 
-        $lettersAndDigits = array_merge($letters, range(0, 9));
+        $lettersAndDigits = array_merge($letters, $digits);
 
         for ($i = 0; $i < $length; $i++) {
             $string .= $lettersAndDigits[rand(0, count($lettersAndDigits) - 1)];
