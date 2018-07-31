@@ -9,6 +9,7 @@
 namespace helpers;
 
 
+use Klein\Request;
 use RedBeanPHP\R;
 
 class User {
@@ -20,6 +21,13 @@ class User {
                 return true;
             }
         }
+        return false;
+    }
+
+    public static function getTokenFromHeader (Request $request) {
+        $token = $request->headers()->get('Authorization');
+        if ($token)
+            return $token;
         return false;
     }
 }
