@@ -2,6 +2,8 @@
 
 use helpers\Config;
 use helpers\Date;
+use helpers\Json;
+use helpers\User;
 use Klein\Request;
 use Klein\Response;
 use \RedBeanPHP\R as R;
@@ -16,6 +18,10 @@ $router = new Klein\Klein();
 
 $router->respond('*', function (Request $request, Response $response) use ($router) {
     $sessions = R::findAll('sessions', '`date` <= ?', array(Date::now()));
+    $token = $request->headers()->get('Authorization');
+
+    header('Content-type: application/json; charset=UTF-8');
+
     if ($sessions) {
         R::trashAll($sessions);
     }
@@ -27,8 +33,13 @@ $router->respond('*', function (Request $request, Response $response) use ($rout
     );
 
     if (in_array($request->pathname(), $forbidden_routes)) {
-        echo \helpers\Json::encode('Access forbidden');
-        $router->abort(401);
+        $agent = $request->userAgent();
+        $ip = $request->ip();
+        if (!User::checkSession($token, $agent, $ip)) {
+            echo Json::encode('Access denied');
+            setStatus(401);
+            $router->abort();
+        }
     }
 });
 
