@@ -3,6 +3,7 @@
 use helpers\Config;
 use helpers\Date;
 use helpers\Json;
+use helpers\Messages;
 use helpers\User;
 use Klein\Request;
 use Klein\Response;
@@ -18,9 +19,8 @@ $router = new Klein\Klein();
 
 $router->respond('*', function (Request $request, Response $response) use ($router) {
     $sessions = R::findAll('sessions', '`date` <= ?', array(Date::now()));
-    $token = $request->headers()->get('Authorization');
-
-    header('Content-type: application/json; charset=UTF-8');
+    $token = User::getTokenFromHeader($request);
+    //header('Content-type: application/json; charset=UTF-8');
 
     if ($sessions) {
         R::trashAll($sessions);
@@ -36,7 +36,7 @@ $router->respond('*', function (Request $request, Response $response) use ($rout
         $agent = $request->userAgent();
         $ip = $request->ip();
         if (!User::checkSession($token, $agent, $ip)) {
-            echo Json::encode('Access denied');
+            echo Json::encode(Messages::DENIED);
             setStatus(401);
             $router->abort();
         }

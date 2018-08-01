@@ -1,18 +1,17 @@
 <?php
 
+use helpers\User;
+use RedBeanPHP\R;
+
 $router->get('/api/words', function ($request, $response) {
-    header('Content-Type: application/json');
-    $pdo = getConnection();
-    $user_id = $request->userId;
-
-    $data = getWords($user_id, $pdo, $request->settings);
-
-    if (empty($data)) {
+    $user = User::getUserBySession($request);
+    $words = R::getAll(wordsSQL(), array($user->id));
+    if (empty($words)) {
         $response->code(400);
         return json_encode(['error' => 'wordsEmpty']);
     }
 
-    $data = getWordsAndSentencesTree($data);
+    $data = getWordsAndSentencesTree($words);
     return json_encode($data, JSON_UNESCAPED_UNICODE);
 });
 

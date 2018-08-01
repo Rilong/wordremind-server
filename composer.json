@@ -1,4 +1,6 @@
 {
+    "name": "Remind words server",
+    "description": "",
     "require": {
         "gabordemooij/redbean": "dev-master",
         "google/cloud-translate": "^1.2",

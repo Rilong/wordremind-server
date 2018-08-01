@@ -1,6 +1,8 @@
 <?php
+use Klein\Request;
+use Klein\Response;
 
-    $router->get('/api/translate', function ($request, $response) {
+$router->get('/api/translate', function (Request $request, Response $response) {
         header('Content-Type: application/json');
         $key = 'wordremind-bbb8b';
         putenv('GOOGLE_APPLICATION_CREDENTIALS=WordRemind-f231a871a340.json');

@@ -11,16 +11,13 @@ use Klein\Request;
 use Klein\Response;
 use RedBeanPHP\R;
 
-$router->get('/api/auth', function (Request $request, Response $response) {
-    // $users = R::findAll('users');
-    return $request->userAgent();
-});
-
 $router->post('/api/auth', function (Request $request, Response $response) {
     $login = htmlspecialchars($request->login);
     $password = htmlspecialchars($request->password);
     $ip = $request->ip();
-    $agent = sha1($request->userAgent());
+    $agent = sha1(agent_remove_version($request->userAgent()));
+
+
 
     $user = R::findOne('users', 'login = ?', array($login));
     if (!$user) {
@@ -35,9 +32,12 @@ $router->post('/api/auth', function (Request $request, Response $response) {
 
     $session = R::findOne('sessions', '`ip` = ? AND `agent` = ?', array($ip, $agent));
     $token = null;
+    $expire = null;
     if (!$session) {
         $session = R::dispense('sessions');
         $token = Passport::generateString(60);
+        Date::day(7);
+
         $session->ip = $ip;
         $session->agent = $agent;
         $session->token = $token;
@@ -69,4 +69,29 @@ $router->delete('/api/auth', function (Request $request, Response $response) {
     }
     $response->code(403);
     return Json::encode('Forbidden access');
+});
+
+$router->post('/api/auth/check', function (Request $request, Response $response) {
+    $ip = $request->ip();
+    $agent = sha1(agent_remove_version($request->userAgent()));
+    $token = $request->token;
+    $session = R::findOne('sessions', '`ip` = ? AND `agent` = ?', array($ip, $agent));
+
+
+    if ($token) {
+        if ($session) {
+            if ($session->token == $token) {
+                $response->code(200);
+                return Json::encode(array('token' => $session->token));
+            } else {
+                $response->code(401);
+                return Json::encode('Access denied');
+            }
+        }
+    } else {
+        $response->code(403);
+        return Json::encode('Token invalid');
+    }
+    $response->code(401);
+    return Json::encode('Access denied');
 });
