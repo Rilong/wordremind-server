@@ -59,7 +59,7 @@ $router->delete('/api/auth', function (Request $request, Response $response) {
     parse_str(file_get_contents('php://input'),$delete_data);
 
     $ip = $request->ip();
-    $agent = sha1($request->userAgent());
+    $agent = sha1(agent_remove_version($request->userAgent()));
     $session = R::findOne('sessions', '`ip` = ? AND `agent` = ?', array($ip, $agent));
 
     if ($session) {

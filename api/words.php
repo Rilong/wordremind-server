@@ -8,79 +8,64 @@ $router->get('/api/words', function ($request, $response) {
     $words = R::getAll(wordsSQL(), array($user->id));
     if (empty($words)) {
         $response->code(400);
-        return json_encode(['error' => 'wordsEmpty']);
+        return json_encode(array('error' => 'wordsEmpty'));
     }
 
     $data = getWordsAndSentencesTree($words);
     return json_encode($data, JSON_UNESCAPED_UNICODE);
 });
 
-$router->post('/api/word', function ($request, $response) {
-    header('Content-Type: application/json');
-
-    $word = $request->word;
+$router->post('/api/word', function (\Klein\Request $request, \Klein\Response $response) {
+    $word_arr = $request->word;
+    $word = $word_arr['word'];
+    $sentences = $request->word['sentences'];
+    $user = User::getUserBySession($request);
     if (!$word) {
         $response->code(400);
-        return json_encode(['error' => 'Error']);
+        return json_encode(array('error' => 'Error'));
     }
 
-    $pdo = getConnection();
-
-    $statement_words = $pdo->prepare("INSERT INTO `words` (`user_id`, `word`, `translation`, `created_date`) VALUES (?,?,?,?)");
-    $params = array($word['userId'], $word['word']['word'], $word['word']['translated'], time());
-    $statement_words->execute($params);
-
-    $word_id = $pdo->lastInsertId();
-    $sentences = $word['sentences'];
+    $word_db = R::dispense('words');
+    $word_db->word = $word['word'];
+    $word_db->translation = $word['translated'];
+    $word_db->created_date = time();
 
     if ($sentences) {
-        $statement_sentences = $pdo->prepare("INSERT INTO `sentences` (`word_id`, `text`, `translation`) VALUES (?,?,?)");
-        foreach ($sentences as $sentence) {
-            $statement_sentences->execute(
-                array(
-                    $word_id,
-                    $sentence['sentence'],
-                    $sentence['translated']
-                )
-            );
-        }
+        $sentences_db = R::dispense('sentences', count($sentences));
+        for ($i = 0; $i < count($sentences); $i++) {
+            $sentences_db[$i]->text = $sentences[$i]['sentence'];
+            $sentences_db[$i]->translation = $sentences[$i]['translated']['text'];
+    }
+        $word_db->alias('word')->ownSentencesList = $sentences_db;
     }
 
-    $data = getWords($word['userId'], $pdo);
-    return json_encode(getWordsAndSentencesTree($data), JSON_UNESCAPED_UNICODE);
+    $user->alias('user')->ownWordsList[] = $word_db;
+    R::store($user);
+    $words = R::getAll(wordsSQL(), array($user->id));
+    return json_encode(getWordsAndSentencesTree($words), JSON_UNESCAPED_UNICODE);
 });
 
 $router->delete('/api/word', function ($request, $response) {
-    $pdo = getConnection();
-
+    $user = User::getUserBySession($request);
     $word_data = $request->data;
     $word_id = $request->id;
-    $user_id = $word_data['user_id'];
 
-    $statement_word = $pdo->prepare('DELETE FROM `words` WHERE `id` = ?');
-    $statement_word->execute(array($word_id));
-
-
+    R::exec('DELETE FROM `words` WHERE `id` = ?', array($word_id));
     if (isset($word_data['sentences'])) {
-        $statement_sentence = $pdo->prepare('DELETE FROM `sentences` WHERE `word_id` = ?');
-        $statement_sentence->execute(array($word_id));
+        R::exec('DELETE FROM `sentences` WHERE `word_id` = ?', array($word_id));
     }
-
-    $words = getWords($user_id, $pdo);
-    return json_encode(getWordsAndSentencesTree($words));
+    $words = R::getAll(wordsSQL(), array($user->id));
+    return json_encode(getWordsAndSentencesTree($words), JSON_UNESCAPED_UNICODE);
 });
 
 $router->put('/api/word', function ($request, $response) {
-    header('Content-Type: application/json');
-
+    $user = User::getUserBySession($request);
     parse_str(file_get_contents('php://input'), $put_vars);
-    $pdo = getConnection();
 
     $added = null;
     $editing = $put_vars['editing'];
     $word = $editing['word'];
     $word_id = $word['id'];
-    $user_id = $put_vars['user_id'];
 
     if (isset($editing['added'])) {
         $added = $editing['added'];
@@ -89,48 +74,41 @@ $router->put('/api/word', function ($request, $response) {
 
     unset($editing['word']);
 
-    $update_word = $pdo->prepare('UPDATE `words` SET `word` = ?, `translation` = ? WHERE id = ?');
-    $update_sentence = $pdo->prepare('UPDATE `sentences` SET `text` = ?, `translation` = ? WHERE id = ?');
-    $delete_sentence = $pdo->prepare('DELETE FROM `sentences` WHERE `id` = ?');
-    $add_sentence = $pdo->prepare("INSERT INTO `sentences` (`word_id`, `text`, `translation`) VALUES (?,?,?)");
+    $words = R::load('words', $word_id);
+    $sentences = $words->alias('word')->xownSentencesList;
 
     if (!empty($editing)) {
         foreach ($editing as $id => $value) {
             switch ($value['status']) {
                 case 'edited' :
-                    $update_sentence->execute(
-                        array(
-                            $value['sentence_text'],
-                            $value['sentence_translation'],
-                            $value['sentence_id']
-                        )
-                    );
+                    $sentences[$id]->text = $value['sentence_text'];
+                    $sentences[$id]->translation = $value['sentence_translation'];
                     break;
                 case 'deleted' :
-                    $delete_sentence->execute(array($value['sentence_id']));
+                    echo $id;
+                    unset($sentences[$id]);
                     break;
             }
         }
     }
     if ($added != null) {
-        foreach ($added as $sentence) {
-            $add_sentence->execute(array(
-                $word_id,
-                $sentence['sentence'],
-                $sentence['translated']
-            ));
+        for ($i = 0; $i < count($added); $i++) {
+            $add_sentence = R::dispense('sentences');
+            $add_sentence->text = $added[$i]['sentence'];
+            $add_sentence->translation = $added[$i]['translated']['text'];
+            $sentences[] = $add_sentence;
+
         }
     }
 
     if ($word['status'] == 'edited') {
-        $update_word->execute(array(
-            $word['word'],
-            $word['word_translation'],
-            $word['id']
-        ));
+        $words->word = $word['word'];
+        $words->translation = $word['word_translation'];
     }
 
-    $words = getWords($user_id, $pdo);
+    $words->alias('word')->ownSentencesList = $sentences;
+    R::store($words);
+    $words_all = R::getAll(wordsSQL(), array($user->id));
 
-    return json_encode(getWordsAndSentencesTree($words), JSON_UNESCAPED_UNICODE);
+    return json_encode(getWordsAndSentencesTree($words_all), JSON_UNESCAPED_UNICODE);
 });
