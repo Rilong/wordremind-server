@@ -10,7 +10,6 @@ namespace helpers;
 
 
 use Klein\Request;
-use RedBeanPHP\OODBBean;
 use RedBeanPHP\R;
 
 class User {

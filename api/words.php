@@ -1,10 +1,12 @@
 <?php
 
+use helpers\Date;
+use helpers\Registry;
 use helpers\User;
 use RedBeanPHP\R;
 
 $router->get('/api/words', function ($request, $response) {
-    $user = User::getUserBySession($request);
+    $user = Registry::get('user');
     $words = R::getAll(wordsSQL(), array($user->id));
     if (empty($words)) {
         $response->code(400);
@@ -16,10 +18,10 @@ $router->get('/api/words', function ($request, $response) {
 });
 
 $router->post('/api/word', function (\Klein\Request $request, \Klein\Response $response) {
+    $user = Registry::get('user');
     $word_arr = $request->word;
     $word = $word_arr['word'];
     $sentences = $request->word['sentences'];
-    $user = User::getUserBySession($request);
     if (!$word) {
         $response->code(400);
         return json_encode(array('error' => 'Error'));
@@ -28,7 +30,7 @@ $router->post('/api/word', function (\Klein\Request $request, \Klein\Response $r
     $word_db = R::dispense('words');
     $word_db->word = $word['word'];
     $word_db->translation = $word['translated'];
-    $word_db->created_date = time();
+    $word_db->created_date = Date::now();
 
     if ($sentences) {
         $sentences_db = R::dispense('sentences', count($sentences));
@@ -59,7 +61,7 @@ $router->delete('/api/word', function ($request, $response) {
 });
 
 $router->put('/api/word', function ($request, $response) {
-    $user = User::getUserBySession($request);
+    $user = Registry::get('user');
     parse_str(file_get_contents('php://input'), $put_vars);
 
     $added = null;

@@ -4,6 +4,7 @@ use helpers\Config;
 use helpers\Date;
 use helpers\Json;
 use helpers\Messages;
+use helpers\Registry;
 use helpers\User;
 use Klein\Request;
 use Klein\Response;
@@ -41,6 +42,8 @@ $router->respond('*', function (Request $request, Response $response) use ($rout
             $router->abort();
         }
     }
+    $user = User::getUserBySession($request);
+    Registry::set('user', $user);
 });
 
 // Translate API
