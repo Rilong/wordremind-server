@@ -41,9 +41,9 @@ $router->respond('*', function (Request $request, Response $response) use ($rout
             setStatus(401);
             $router->abort();
         }
+        $user = User::getUserBySession($request);
+        Registry::set('user', $user);
     }
-    $user = User::getUserBySession($request);
-    Registry::set('user', $user);
 });
 
 // Translate API
