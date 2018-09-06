@@ -99,7 +99,7 @@ $router->put('/api/word', function ($request, $response) {
             $add_sentence = R::dispense('sentences');
             $add_sentence->text = $added[$i]['sentence'];
             $add_sentence->translation = $added[$i]['translated'];
-            $words->alias('word')->sentencesList[] = $add_sentence;
+            $words->alias('word')->ownSentencesList[] = $add_sentence;
         }
     }
 
