@@ -15,6 +15,7 @@ require_once '../functions.php';
 
 $dbconfig = new Config('db');
 R::setup($dbconfig->get('dns'), $dbconfig->get('username'), $dbconfig->get('password'));
+R::freeze(true);
 
 $router = new Klein\Klein();
 

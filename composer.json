@@ -2,10 +2,10 @@
     "name": "Remind words server",
     "description": "",
     "require": {
-        "gabordemooij/redbean": "dev-master",
         "google/cloud-translate": "^1.2",
         "klein/klein": "^2.1",
-        "respect/validation": "^1.1"
+        "respect/validation": "^1.1",
+        "gabordemooij/redbean": "^5.1"
     },
     "autoload": {
         "psr-4": {

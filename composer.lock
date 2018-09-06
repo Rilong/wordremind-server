@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3471adc2836a41dc8871e50d99752811",
+    "content-hash": "18183af5858e71efca2cabc61ad4dbec",
     "packages": [
         {
             "name": "firebase/php-jwt",
@@ -54,16 +54,16 @@
         },
         {
             "name": "gabordemooij/redbean",
-            "version": "dev-master",
+            "version": "v5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/gabordemooij/redbean.git",
-                "reference": "20f6bd58d62f13ae811b615ab2788251205fd31d"
+                "reference": "a02e58ad5519149f572559a8293b5dffea385956"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gabordemooij/redbean/zipball/20f6bd58d62f13ae811b615ab2788251205fd31d",
-                "reference": "20f6bd58d62f13ae811b615ab2788251205fd31d",
+                "url": "https://api.github.com/repos/gabordemooij/redbean/zipball/a02e58ad5519149f572559a8293b5dffea385956",
+                "reference": "a02e58ad5519149f572559a8293b5dffea385956",
                 "shasum": ""
             },
             "require": {
@@ -77,7 +77,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "New BSD and GPLv2"
             ],
             "authors": [
                 {
@@ -91,7 +91,7 @@
             "keywords": [
                 "orm"
             ],
-            "time": "2018-07-01T09:51:03+00:00"
+            "time": "2018-04-01T11:51:37+00:00"
         },
         {
             "name": "google/auth",
@@ -871,9 +871,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "gabordemooij/redbean": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

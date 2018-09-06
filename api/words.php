@@ -22,6 +22,7 @@ $router->post('/api/word', function (\Klein\Request $request, \Klein\Response $r
     $word_arr = $request->word;
     $word = $word_arr['word'];
     $sentences = $request->word['sentences'];
+
     if (!$word) {
         $response->code(400);
         return json_encode(array('error' => 'Error'));
@@ -35,8 +36,9 @@ $router->post('/api/word', function (\Klein\Request $request, \Klein\Response $r
     if ($sentences) {
         $sentences_db = R::dispense('sentences', count($sentences));
         for ($i = 0; $i < count($sentences); $i++) {
+            echo $sentences[$i]['sentence'];
             $sentences_db[$i]->text = $sentences[$i]['sentence'];
-            $sentences_db[$i]->translation = $sentences[$i]['translated']['text'];
+            $sentences_db[$i]->translation = $sentences[$i]['translated'];
     }
         $word_db->alias('word')->ownSentencesList = $sentences_db;
     }
@@ -77,38 +79,35 @@ $router->put('/api/word', function ($request, $response) {
     unset($editing['word']);
 
     $words = R::load('words', $word_id);
-    $sentences = $words->alias('word')->xownSentencesList;
 
     if (!empty($editing)) {
         foreach ($editing as $id => $value) {
             switch ($value['status']) {
                 case 'edited' :
-                    $sentences[$id]->text = $value['sentence_text'];
-                    $sentences[$id]->translation = $value['sentence_translation'];
+                    $words->alias('word')->xownSentencesList[$id]->text = $value['sentence_text'];
+                    $words->alias('word')->xownSentencesList[$id]->translation = $value['sentence_translation'];
                     break;
                 case 'deleted' :
-                    echo $id;
-                    unset($sentences[$id]);
+                    unset($words->alias('word')->xownSentencesList[$id]);
                     break;
             }
         }
     }
+
     if ($added != null) {
         for ($i = 0; $i < count($added); $i++) {
             $add_sentence = R::dispense('sentences');
             $add_sentence->text = $added[$i]['sentence'];
-            $add_sentence->translation = $added[$i]['translated']['text'];
-            $sentences[] = $add_sentence;
-
+            $add_sentence->translation = $added[$i]['translated'];
+            $words->alias('word')->sentencesList[] = $add_sentence;
         }
     }
 
-    if ($word['status'] == 'edited') {
+    if (isset($word['status']) && $word['status'] == 'edited') {
         $words->word = $word['word'];
         $words->translation = $word['word_translation'];
     }
 
-    $words->alias('word')->ownSentencesList = $sentences;
     R::store($words);
     $words_all = R::getAll(wordsSQL($request->settings), array($user->id));
 
