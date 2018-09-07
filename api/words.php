@@ -7,7 +7,7 @@ use RedBeanPHP\R;
 
 $router->get('/api/words', function ($request, $response) {
     $user = Registry::get('user');
-    $words = R::getAll(wordsSQL($request->settings), array($user->id));
+    $words = R::getAll(wordsSQL(), array($user->id));
     if (empty($words)) {
         $response->code(400);
         return json_encode(array('error' => 'wordsEmpty'));
@@ -44,7 +44,7 @@ $router->post('/api/word', function (\Klein\Request $request, \Klein\Response $r
 
     $user->alias('user')->ownWordsList[] = $word_db;
     R::store($user);
-    $words = R::getAll(wordsSQL($request->settings), array($user->id));
+    $words = R::getAll(wordsSQL(), array($user->id));
     return json_encode(getWordsAndSentencesTree($words), JSON_UNESCAPED_UNICODE);
 });
 
@@ -57,7 +57,7 @@ $router->delete('/api/word', function ($request, $response) {
     if (isset($word_data['sentences'])) {
         R::exec('DELETE FROM `sentences` WHERE `word_id` = ?', array($word_id));
     }
-    $words = R::getAll(wordsSQL($request->settings), array($user->id));
+    $words = R::getAll(wordsSQL(), array($user->id));
     return json_encode(getWordsAndSentencesTree($words), JSON_UNESCAPED_UNICODE);
 });
 
@@ -108,7 +108,7 @@ $router->put('/api/word', function ($request, $response) {
     }
 
     R::store($words);
-    $words_all = R::getAll(wordsSQL($request->settings), array($user->id));
+    $words_all = R::getAll(wordsSQL(), array($user->id));
 
     return json_encode(getWordsAndSentencesTree($words_all), JSON_UNESCAPED_UNICODE);
 });
