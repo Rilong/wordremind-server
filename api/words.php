@@ -34,13 +34,12 @@ $router->post('/api/word', function (\Klein\Request $request, \Klein\Response $r
     $word_db->created_date = Date::now();
 
     if ($sentences) {
-        $sentences_db = R::dispense('sentences', count($sentences));
         for ($i = 0; $i < count($sentences); $i++) {
-            echo $sentences[$i]['sentence'];
-            $sentences_db[$i]->text = $sentences[$i]['sentence'];
-            $sentences_db[$i]->translation = $sentences[$i]['translated'];
-    }
-        $word_db->alias('word')->ownSentencesList = $sentences_db;
+            $sentences_db = R::dispense('sentences');
+            $sentences_db->text = $sentences[$i]['sentence'];
+            $sentences_db->translation = $sentences[$i]['translated'];
+            $word_db->alias('word')->ownSentencesList[] = $sentences_db;
+        }
     }
 
     $user->alias('user')->ownWordsList[] = $word_db;
