@@ -17,9 +17,6 @@ $dbconfig = new Config('db');
 R::setup($dbconfig->get('dns'), $dbconfig->get('username'), $dbconfig->get('password'));
 R::freeze(true);
 
-$what = R::findAndExport('sentences');
-echo json_encode($what, JSON_UNESCAPED_UNICODE);
-exit;
 $router = new Klein\Klein();
 
 $router->respond('*', function (Request $request, Response $response) use ($router) {
