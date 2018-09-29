@@ -5,7 +5,8 @@
         "google/cloud-translate": "^1.2",
         "klein/klein": "^2.1",
         "respect/validation": "^1.1",
-        "gabordemooij/redbean": "^5.1"
+        "gabordemooij/redbean": "^5.1",
+        "robmorgan/phinx": "^0.10.6"
     },
     "autoload": {
         "psr-4": {
