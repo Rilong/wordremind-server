@@ -1,0 +1,506 @@
+[
+  {
+    "id": "1",
+    "user_id": "1",
+    "word": "Fluently",
+    "translation": "Вільно",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "2",
+    "user_id": "1",
+    "word": "Happen",
+    "translation": "Буває",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "3",
+    "user_id": "1",
+    "word": "Often",
+    "translation": "Часто",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "4",
+    "user_id": "1",
+    "word": "Usually",
+    "translation": "Зазвичай",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "5",
+    "user_id": "1",
+    "word": "Rest",
+    "translation": "Відпочинок",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "6",
+    "user_id": "1",
+    "word": "Seem",
+    "translation": "Здається",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "7",
+    "user_id": "1",
+    "word": "Cost",
+    "translation": "Коштує",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "8",
+    "user_id": "1",
+    "word": "Dress",
+    "translation": "Плаття",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "9",
+    "user_id": "1",
+    "word": "Also",
+    "translation": "Також",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "10",
+    "user_id": "1",
+    "word": "Early",
+    "translation": "Рано",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "11",
+    "user_id": "1",
+    "word": "Late",
+    "translation": "Пізно",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "12",
+    "user_id": "1",
+    "word": "Different",
+    "translation": "Різний",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "13",
+    "user_id": "1",
+    "word": "Thing",
+    "translation": "Річ",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "14",
+    "user_id": "1",
+    "word": "Order",
+    "translation": "Замовлення",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "15",
+    "user_id": "1",
+    "word": "Another",
+    "translation": "Інше",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "16",
+    "user_id": "1",
+    "word": "Abroad",
+    "translation": "За кордоном",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "18",
+    "user_id": "1",
+    "word": "Own",
+    "translation": "Власний",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "19",
+    "user_id": "1",
+    "word": "Everything",
+    "translation": "Все",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "20",
+    "user_id": "1",
+    "word": "Hear",
+    "translation": "Почути",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "21",
+    "user_id": "1",
+    "word": "Earn",
+    "translation": "Заробляти",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "22",
+    "user_id": "1",
+    "word": "Prefer",
+    "translation": "Віддавати перевагу ",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "23",
+    "user_id": "1",
+    "word": "Walk",
+    "translation": "Ходити (Пішки)",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "24",
+    "user_id": "1",
+    "word": "Advice",
+    "translation": "Порада",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "25",
+    "user_id": "1",
+    "word": "Become",
+    "translation": "Стати",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "26",
+    "user_id": "1",
+    "word": "Any",
+    "translation": "Будь-який",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "27",
+    "user_id": "1",
+    "word": "Mistake",
+    "translation": "Помилка",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "28",
+    "user_id": "1",
+    "word": "Together",
+    "translation": "Разом",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "29",
+    "user_id": "1",
+    "word": "Forget",
+    "translation": "Забувати",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "30",
+    "user_id": "1",
+    "word": "Feel",
+    "translation": "Відчути",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "31",
+    "user_id": "1",
+    "word": "Urgently",
+    "translation": "Терміново",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "32",
+    "user_id": "1",
+    "word": "Strange",
+    "translation": "Дивно",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "33",
+    "user_id": "1",
+    "word": "Boring",
+    "translation": "Нудно",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "34",
+    "user_id": "1",
+    "word": "Wonderful",
+    "translation": "Чодово",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "35",
+    "user_id": "1",
+    "word": "Include",
+    "translation": "Включати",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "36",
+    "user_id": "1",
+    "word": "Rarely \/ Seldom",
+    "translation": "Рідко",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "37",
+    "user_id": "1",
+    "word": "Colleague",
+    "translation": "Колега",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "38",
+    "user_id": "1",
+    "word": "Classmate",
+    "translation": "Однокласник",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "39",
+    "user_id": "1",
+    "word": "Neighbor",
+    "translation": "Сусід",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "40",
+    "user_id": "1",
+    "word": "Expensive",
+    "translation": "Дорого",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "41",
+    "user_id": "1",
+    "word": "Cheap",
+    "translation": "Дешево",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "42",
+    "user_id": "1",
+    "word": "Meet",
+    "translation": "Зуcтрічати",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "43",
+    "user_id": "1",
+    "word": "Wait",
+    "translation": "Чекати",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "44",
+    "user_id": "1",
+    "word": "Offer",
+    "translation": "Пропозиція",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "45",
+    "user_id": "1",
+    "word": "Useful",
+    "translation": "Корисно",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "46",
+    "user_id": "1",
+    "word": "Explain",
+    "translation": "Пояснити",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "47",
+    "user_id": "1",
+    "word": "Promise",
+    "translation": "Обіцянка",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "48",
+    "user_id": "1",
+    "word": "Excellent",
+    "translation": "Відмінно",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "49",
+    "user_id": "1",
+    "word": "Lazy",
+    "translation": "Лінивий",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "50",
+    "user_id": "1",
+    "word": "Hungry",
+    "translation": "Голодний",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "51",
+    "user_id": "1",
+    "word": "Warm",
+    "translation": "Теплий",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "52",
+    "user_id": "1",
+    "word": "Tired",
+    "translation": "Втомився",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "53",
+    "user_id": "1",
+    "word": "Rich",
+    "translation": "Багатий",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "54",
+    "user_id": "1",
+    "word": "Afraid",
+    "translation": "Боїться",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "55",
+    "user_id": "1",
+    "word": "Enough",
+    "translation": "Достатньо",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "56",
+    "user_id": "1",
+    "word": "Powerful",
+    "translation": "Потужний",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "57",
+    "user_id": "1",
+    "word": "Reliable",
+    "translation": "Надійний",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "58",
+    "user_id": "1",
+    "word": "Acquaintance",
+    "translation": "Знайомій",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "59",
+    "user_id": "1",
+    "word": "Wrong",
+    "translation": "Неправий",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "60",
+    "user_id": "1",
+    "word": "Far",
+    "translation": "Далеко",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "61",
+    "user_id": "1",
+    "word": "Specialist",
+    "translation": "Cпеціаліст",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "62",
+    "user_id": "1",
+    "word": "Pleasant",
+    "translation": "Приємний",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "63",
+    "user_id": "1",
+    "word": "Independent",
+    "translation": "Незалежний",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "64",
+    "user_id": "1",
+    "word": "Famous",
+    "translation": "Знаменитий",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "65",
+    "user_id": "1",
+    "word": "Outstanding",
+    "translation": "Видатний",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "66",
+    "user_id": "1",
+    "word": "Knowledge",
+    "translation": "Знання",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "67",
+    "user_id": "1",
+    "word": "Available",
+    "translation": "Доступно",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "68",
+    "user_id": "1",
+    "word": "Experienced",
+    "translation": "Досвідчений",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "69",
+    "user_id": "1",
+    "word": "Quite",
+    "translation": "Цілком",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "70",
+    "user_id": "1",
+    "word": "Obvious",
+    "translation": "Очевидний",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "71",
+    "user_id": "1",
+    "word": "Everyone",
+    "translation": "Всі",
+    "created_date": "1527158001"
+  },
+  {
+    "id": "72",
+    "user_id": "1",
+    "word": "Decision",
+    "translation": "Рішення",
+    "created_date": "1527158005"
+  },
+  {
+    "id": "73",
+    "user_id": "1",
+    "word": "test",
+    "translation": "тест",
+    "created_date": "1536237014"
+  }
+]

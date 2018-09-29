@@ -8,8 +8,8 @@ class CreateUserTable extends AbstractMigration {
         $this->table('users')
             ->addColumn('login', 'string', ['limit' => 20])
             ->addColumn('password', 'string', ['limit' => 64])
-            ->addColumn('settings', 'text')
-            ->addColumn('auth_token', 'string')
+            ->addColumn('settings', 'text', ['null' => true])
+            ->addColumn('auth_token', 'string', ['null' => true])
             ->addIndex('login', ['unique' => true])
             ->save();
     }

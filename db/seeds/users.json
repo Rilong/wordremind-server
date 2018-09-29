@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1",
+    "login": "Rilong",
+    "password": "$2y$10$djsv5hpPKBqBsjlpnwhcAO7YhVxRzWwnttlEy\/\/QHYUplef47gwHS",
+    "settings": null,
+    "auth_token": null
+  },
+  {
+    "id": "5",
+    "login": "test1",
+    "password": "$2y$10$52LPNaTB1oXSyw8ONgAcge49ASFkJKuZnMchNPnM44H\/tiduOoQoW",
+    "settings": null,
+    "auth_token": null
+  }
+]

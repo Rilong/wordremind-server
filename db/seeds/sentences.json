@@ -1,0 +1,440 @@
+[
+  {
+    "id": "1",
+    "word_id": "1",
+    "text": "I speak English fluently 2",
+    "translation": "Я розмовляю по англійські вільно"
+  },
+  {
+    "id": "2",
+    "word_id": "2",
+    "text": "It happens",
+    "translation": "Це буває"
+  },
+  {
+    "id": "3",
+    "word_id": "3",
+    "text": "He often plays computer games",
+    "translation": "Він часто грає в комп'ютерні ігри"
+  },
+  {
+    "id": "4",
+    "word_id": "4",
+    "text": "He usually relaxes in the day",
+    "translation": "Він зазвичай відпочиває вдень"
+  },
+  {
+    "id": "5",
+    "word_id": "5",
+    "text": "I have a rest",
+    "translation": "Я відпочиваю"
+  },
+  {
+    "id": "6",
+    "word_id": "6",
+    "text": "It seems interesting",
+    "translation": "Це здається цікавим"
+  },
+  {
+    "id": "7",
+    "word_id": "7",
+    "text": "It costs 200 dollars",
+    "translation": "Це коштує 200 доларів"
+  },
+  {
+    "id": "8",
+    "word_id": "8",
+    "text": " This dress costs 50 dollars",
+    "translation": "Це плаття коштує 50 доларів"
+  },
+  {
+    "id": "9",
+    "word_id": "9",
+    "text": "I also think so",
+    "translation": "Я так теж думаю"
+  },
+  {
+    "id": "10",
+    "word_id": "10",
+    "text": "I get up early",
+    "translation": "я прокидаюся рано"
+  },
+  {
+    "id": "11",
+    "word_id": "11",
+    "text": "She eats late",
+    "translation": "Вона їсть пізно"
+  },
+  {
+    "id": "12",
+    "word_id": "12",
+    "text": "She watches different videos",
+    "translation": "Вона дивиться різні відео"
+  },
+  {
+    "id": "13",
+    "word_id": "13",
+    "text": "I want to buy this thing",
+    "translation": "Я хочу купити цю річ"
+  },
+  {
+    "id": "14",
+    "word_id": "14",
+    "text": "I want order this phone",
+    "translation": "Я хочу замовити цей телефон"
+  },
+  {
+    "id": "15",
+    "word_id": "16",
+    "text": "I want to go to abroad ",
+    "translation": "Я хочу поїхати за кордон"
+  },
+  {
+    "id": "17",
+    "word_id": "18",
+    "text": "I want to have my own a house",
+    "translation": "Я хочу мати свій будинок"
+  },
+  {
+    "id": "18",
+    "word_id": "19",
+    "text": "I want to know everything",
+    "translation": "Я хочу все знати"
+  },
+  {
+    "id": "19",
+    "word_id": "20",
+    "text": "I would like to hear this story",
+    "translation": "Я хотів би почути цю історію"
+  },
+  {
+    "id": "20",
+    "word_id": "21",
+    "text": "I want to earn more money",
+    "translation": "Я хочу заробляти більше грошей"
+  },
+  {
+    "id": "21",
+    "word_id": "22",
+    "text": "I prefer to learn English on YouTube",
+    "translation": "Я віддаю перевагу вивчати англійську мову на YouTube"
+  },
+  {
+    "id": "22",
+    "word_id": "23",
+    "text": "I don't walk to work",
+    "translation": "Я не ходжу на роботу"
+  },
+  {
+    "id": "23",
+    "word_id": "24",
+    "text": "I need your advice",
+    "translation": "Мені потрібна ваша порада"
+  },
+  {
+    "id": "24",
+    "word_id": "25",
+    "text": "I want to become a good programmer",
+    "translation": "Я хочу стати хорошим програмістом"
+  },
+  {
+    "id": "25",
+    "word_id": "26",
+    "text": "I don't buy any newspapers and magazines",
+    "translation": "Я не купую Які небудь газети та журналі"
+  },
+  {
+    "id": "26",
+    "word_id": "27",
+    "text": "I often make mistakes",
+    "translation": "Я часто роблю помилки"
+  },
+  {
+    "id": "27",
+    "word_id": "28",
+    "text": "We live together",
+    "translation": "Ми живемо разом"
+  },
+  {
+    "id": "28",
+    "word_id": "29",
+    "text": "I often forget this word",
+    "translation": "Я часто забуваю це слово"
+  },
+  {
+    "id": "29",
+    "word_id": "30",
+    "text": "He feels bad",
+    "translation": "Він почуває себе погано"
+  },
+  {
+    "id": "30",
+    "word_id": "31",
+    "text": "I need money urgently",
+    "translation": "Мені потрібні гроші терміново"
+  },
+  {
+    "id": "31",
+    "word_id": "32",
+    "text": "It seems strange",
+    "translation": "Здається дивним"
+  },
+  {
+    "id": "32",
+    "word_id": "33",
+    "text": "It seems boring",
+    "translation": "Це здається нудним"
+  },
+  {
+    "id": "33",
+    "word_id": "34",
+    "text": "It look wonderful ",
+    "translation": "Це виглядає чудово"
+  },
+  {
+    "id": "34",
+    "word_id": "35",
+    "text": "His rest include it",
+    "translation": "Його відпочинок включає це"
+  },
+  {
+    "id": "35",
+    "word_id": "36",
+    "text": "I meet his very rarely",
+    "translation": "Я зустрічаю його зовсім рідко"
+  },
+  {
+    "id": "36",
+    "word_id": "38",
+    "text": "My classmate wants to study with me, too",
+    "translation": "Мій однокласник хоче навчатися зі мною теж"
+  },
+  {
+    "id": "37",
+    "word_id": "39",
+    "text": "My neighbors go shopping",
+    "translation": "Мої сусіди ходять по магазинах"
+  },
+  {
+    "id": "38",
+    "word_id": "40",
+    "text": " I want to buy a expensive phone",
+    "translation": "Я хочу купити дорогий телефон"
+  },
+  {
+    "id": "39",
+    "word_id": "41",
+    "text": "He buys cheap things",
+    "translation": "Він купує дешеві речі"
+  },
+  {
+    "id": "40",
+    "word_id": "42",
+    "text": "She usually meets him in the evening",
+    "translation": "Вона зазвичай зустрічає його ввечері"
+  },
+  {
+    "id": "41",
+    "word_id": "43",
+    "text": "I wait for it",
+    "translation": "Я чекаю на це"
+  },
+  {
+    "id": "42",
+    "word_id": "44",
+    "text": "She offers him to buy this car",
+    "translation": "Вона пропонує йому купити цю машину"
+  },
+  {
+    "id": "43",
+    "word_id": "45",
+    "text": "The book seems very useful",
+    "translation": "Книга здається дуже корисною"
+  },
+  {
+    "id": "44",
+    "word_id": "46",
+    "text": "She explains it",
+    "translation": "Вона пояснює це"
+  },
+  {
+    "id": "45",
+    "word_id": "47",
+    "text": "I promise you",
+    "translation": "я обіцяю тобі"
+  },
+  {
+    "id": "46",
+    "word_id": "48",
+    "text": "It is an excellent result",
+    "translation": "Це чудовий результат"
+  },
+  {
+    "id": "47",
+    "word_id": "49",
+    "text": "I am not lazy",
+    "translation": "Я не лінивий"
+  },
+  {
+    "id": "48",
+    "word_id": "50",
+    "text": "I'm hungry",
+    "translation": "я голодний"
+  },
+  {
+    "id": "49",
+    "word_id": "51",
+    "text": "Today warm and sunny day",
+    "translation": "Сьогодні теплий та сонячний день"
+  },
+  {
+    "id": "50",
+    "word_id": "52",
+    "text": "I'm very tired and want to have a rest",
+    "translation": "Я дуже втомлений і хочу відпочити"
+  },
+  {
+    "id": "51",
+    "word_id": "53",
+    "text": "He's very rich",
+    "translation": "Він дуже багатий"
+  },
+  {
+    "id": "52",
+    "word_id": "54",
+    "text": "You're afraid of this thing",
+    "translation": "Ви боїтеся цієї речі"
+  },
+  {
+    "id": "53",
+    "word_id": "55",
+    "text": "I have money enough",
+    "translation": "У мене є достатньо грошей"
+  },
+  {
+    "id": "54",
+    "word_id": "56",
+    "text": "I'd like to have a powerful computer",
+    "translation": "Я хотів би мати потужний комп'ютер"
+  },
+  {
+    "id": "55",
+    "word_id": "57",
+    "text": "Your partners aren't reliable",
+    "translation": "Ваші партнери не надійними"
+  },
+  {
+    "id": "56",
+    "word_id": "58",
+    "text": "She's my a good acquaintance",
+    "translation": "Вона моя хороша знайома"
+  },
+  {
+    "id": "57",
+    "word_id": "59",
+    "text": "You're wrong",
+    "translation": "Ти не правий"
+  },
+  {
+    "id": "58",
+    "word_id": "60",
+    "text": "My brother lives very far from me ",
+    "translation": "Мій брат живе дуже далеко від мене"
+  },
+  {
+    "id": "59",
+    "word_id": "61",
+    "text": "You're a good specialist in this area",
+    "translation": "Ви хороший спеціаліст у цій галузі"
+  },
+  {
+    "id": "60",
+    "word_id": "62",
+    "text": "You're a pleasant person",
+    "translation": "Ви приємна людина"
+  },
+  {
+    "id": "61",
+    "word_id": "63",
+    "text": "I'm an independent person",
+    "translation": "Я незалежна людина"
+  },
+  {
+    "id": "62",
+    "word_id": "64",
+    "text": "I'm a famous person",
+    "translation": "Я знаменита людина"
+  },
+  {
+    "id": "63",
+    "word_id": "65",
+    "text": "He's a outstanding singer",
+    "translation": "Він видатний співак"
+  },
+  {
+    "id": "64",
+    "word_id": "66",
+    "text": "Knowledge is power",
+    "translation": "Знання це сила"
+  },
+  {
+    "id": "65",
+    "word_id": "67",
+    "text": "I want to buy an available phone",
+    "translation": "Я хочу купити доступний телефон"
+  },
+  {
+    "id": "66",
+    "word_id": "68",
+    "text": "He's an experienced worker",
+    "translation": "Він досвідчений працівник"
+  },
+  {
+    "id": "67",
+    "word_id": "69",
+    "text": "My friend is quite reliable",
+    "translation": "Мій друг цілком надійний"
+  },
+  {
+    "id": "68",
+    "word_id": "70",
+    "text": "Your offer is obvious",
+    "translation": "Ваша пропозиція очевидна"
+  },
+  {
+    "id": "69",
+    "word_id": "71",
+    "text": "Everyone knows about this thing",
+    "translation": "Всі знають про цю річ"
+  },
+  {
+    "id": "70",
+    "word_id": "72",
+    "text": "It's a good decision",
+    "translation": "Це хороше рішення"
+  },
+  {
+    "id": "72",
+    "word_id": "0",
+    "text": "I want to have my own car",
+    "translation": "Я хочу мати свій автомобіль"
+  },
+  {
+    "id": "74",
+    "word_id": "15",
+    "text": "I want to live in another country",
+    "translation": "Я хочу жити в іншій країні"
+  },
+  {
+    "id": "77",
+    "word_id": "73",
+    "text": "111",
+    "translation": "222333"
+  },
+  {
+    "id": "78",
+    "word_id": "73",
+    "text": "hgbhykji",
+    "translation": "jkmhjikhnjokhin"
+  }
+]
