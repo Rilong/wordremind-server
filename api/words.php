@@ -58,7 +58,7 @@ $router->delete('/api/word', function ($request, $response) {
         R::exec('DELETE FROM `sentences` WHERE `word_id` = ?', array($word_id));
     }
     $words = R::getAll(wordsSQL(), array($user->id));
-    return json_encode(getWordsAndSentencesTree($words), JSON_UNESCAPED_UNICODE);
+    return json_encode(getWordsAndSentencesTree($words), JSON_UNESCAPED_UNICOrDE);
 });
 
 $router->put('/api/word', function ($request, $response) {

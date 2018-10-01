@@ -90,6 +90,6 @@ function getWordsAndSentencesTree($data) {
 function wordsSQL() {
     $sql = "SELECT `words`.`id`, `words`.`user_id`, `words`.`word`, `words`.`created_date`,  `words`.`translation` AS `word_translation`,`sentences`.`id` AS `sentence_id`, `sentences`.`text` AS `sentence_text`, `sentences`.`text` AS `sentence_text`, `sentences`.`translation` AS `sentence_translation` FROM `words` 
     LEFT JOIN `sentences` ON `words`.`id` = `sentences`.`word_id` 
-    WHERE `user_id` = ? ORDER BY `words`.`id` DESC";
+    WHERE `user_id` = ? ORDER BY `words`.`id` ASC";
     return $sql;
 }
