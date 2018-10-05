@@ -73,7 +73,8 @@ function getWordsAndSentencesTree($data) {
                 'user_id' => $value['user_id'],
                 'word' => $value['word'],
                 'word_translation' => $value['word_translation'],
-                'created_date' => $value['created_date']
+                'created_date' => $value['created_date'],
+                'num' => $value['num']
             );
         }
         if (isset($value['sentence_text']) && $value['sentence_text'] != null) {
@@ -92,4 +93,12 @@ function wordsSQL() {
     LEFT JOIN `sentences` ON `words`.`id` = `sentences`.`word_id` 
     WHERE `user_id` = ? ORDER BY `words`.`id` ASC";
     return $sql;
+}
+
+function add_num($words) {
+    for ($i = 0; $i < count($words); $i++) {
+        $words[$i]['num'] = $i + 1;
+    }
+
+    return $words;
 }
